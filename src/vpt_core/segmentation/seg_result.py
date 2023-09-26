@@ -412,7 +412,7 @@ class SegmentationResult(ResultFields):
                 depricated_entity_ids.append(entity_id)
         self._drop_by_entity_id(depricated_entity_ids)
 
-    def make_non_overlapping_polys(self, min_distance: int = 2, min_area: int = 100, log_progress: bool = False):
+    def make_non_overlapping_polys(self, min_distance: int = 2, min_area: int = 100, log_progress: bool = True):
         # Find cells that have any overlapping area
         problem_sets = self.find_overlapping_entities(self.df)
         log.info(f"Found {len(problem_sets)} overlaps")
