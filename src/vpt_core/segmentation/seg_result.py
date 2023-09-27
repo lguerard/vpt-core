@@ -416,12 +416,14 @@ class SegmentationResult(ResultFields):
         # Find cells that have any overlapping area
         problem_sets = self.find_overlapping_entities(self.df)
         log.info(f"Found {len(problem_sets)} overlaps")
-
+        log.info(f"Continuing...")
         # For each pair of overlapping cells, resolve the conflict
         depricated_entity_ids = []
 
+        log.info(f"Just before iterate")
         def iterate(x: Iterable):
             if log_progress:
+                log.info(f"Log progress is true")
                 return log.show_progress(x)
             else:
                 return x

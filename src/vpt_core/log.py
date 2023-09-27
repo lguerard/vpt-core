@@ -52,7 +52,7 @@ def initialize_logger(fname: str, lvl: int = 1, verbose: bool = False) -> None:
     if lvl > 1:
         # todo: find a better place for this dask-related calls:
         dask_logger = logging.getLogger("distributed.worker")
-        dask_logger.setLevel(logging.ERROR)
+        _logger.setLevel(logging.ERROR)
     set_verbose(verbose)
 
 
